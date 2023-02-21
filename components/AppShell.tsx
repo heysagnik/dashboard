@@ -31,7 +31,7 @@ import {
 
 } from '@chakra-ui/react';
 
-import { FiMenu,FiHome,FiSettings,FiBell,FiSearch,  FiFolder } from 'react-icons/fi';
+import { FiMenu,FiHome,FiSettings,FiBell,FiSearch,  FiFolder, FiUser,  FiDollarSign, FiLogOut } from 'react-icons/fi';
 
 
 import { ReactNode } from 'react';
@@ -129,11 +129,11 @@ export default function AppShell({ title,children }: AppShellProps) {
             <MenuList
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
+              <MenuItem as='a' href='/settings/profile' icon={<FiUser/>}>Profile</MenuItem>
+              <MenuItem as='a' href='/settings' icon={<FiSettings/>}>Settings</MenuItem>
+              <MenuItem icon={<FiDollarSign/>}>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem icon={<FiLogOut/>}>Sign out</MenuItem>
             </MenuList>
           </Menu>
           </Flex>
