@@ -173,7 +173,7 @@ const SidebarContent = ({ ...props }: BoxProps) => (
     {...props}
   >
     <Flex px="4" py="5" align="center">
-      <Image src='/logo.png' h={8} w={8} />
+      <Image src='/logo.png' alt='logo' h={8} w={8} />
       <Text
         fontSize="2xl"
         ml="2"
