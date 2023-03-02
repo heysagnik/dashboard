@@ -45,7 +45,6 @@ const Login = () => {
   if (status === "loading") {
     return <Loader />;
   }
-  
  
   if (signInCheckResult?.signedIn) {
     onSignIn();

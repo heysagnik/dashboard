@@ -12,7 +12,9 @@ export default function DashboardPage() {
   if(SigninCheckResult?.signedIn===false){
     router.push("/login");
   }
-    },[SigninCheckResult?.signedIn])
+    },[SigninCheckResult?.signedIn,router]);
+
+
     return (
         <Layout title='Home'>
             <Box p={4} textAlign='center'>

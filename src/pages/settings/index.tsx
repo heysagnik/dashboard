@@ -11,7 +11,7 @@ export default function Index() {
     if(SigninCheckResult?.signedIn===false){
       router.push("/login");
     }
-      },[SigninCheckResult?.signedIn])
+      },[SigninCheckResult?.signedIn,router])
        
 
   return (

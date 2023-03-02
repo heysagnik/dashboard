@@ -113,7 +113,7 @@ interface LayoutProps {
                 <NavItem icon={<FiFolder />} onClick={() => router.push('/library')} isActive={useActivePath('/library')}>
                     Files
                 </NavItem>
-                <NavItem icon={<FiSettings />} onClick={() => router.push('/settings')} isActive={useActivePath('/settings/')}>
+                <NavItem icon={<FiSettings />} onClick={() => router.push('/settings')} isActive={useActivePath('/settings')}>
                     Settings
                 </NavItem>
                 </SidebarSection>
