@@ -1,20 +1,48 @@
 
 import type { AppProps } from 'next/app'
+import { theme } from '@saas-ui/theme-glass'
+import { SaasProvider,baseTheme } from '@saas-ui/react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
-import { theme as baseTheme } from '@saas-ui/theme-glass'
+import { initializeApp,getApp,getApps } from 'firebase/app';
+import {
+  initializeAuth,
+  indexedDBLocalPersistence,
+  connectAuthEmulator,
+  inMemoryPersistence,
+  getAuth,
+} from 'firebase/auth';
+import {
+  FirebaseAppProvider,
+  AuthProvider
+} from 'reactfire';
 
-export const theme = extendTheme(
-  {
-    // your overrides
-  },
-  baseTheme
-)
+import configuration from 'configuration';
+import { isBrowser } from "utils/generic/isBrowser";
+
+const t = extendTheme( theme,baseTheme)
 
 export default function App({ Component, pageProps }: AppProps) {
+
+  const app = getApps().length === 0 ? initializeApp(configuration.firebase) : getApp();
+  const persistence = isBrowser()
+  ? indexedDBLocalPersistence
+  : inMemoryPersistence;
+  const auth = initializeAuth(app, {
+    persistence,
+  });
+
   return (
-    <ChakraProvider theme={theme}>
+    <FirebaseAppProvider firebaseConfig={configuration.firebase}>
+    <AuthProvider sdk={auth}>
+      <ChakraProvider theme={t}>
+      <SaasProvider theme={t} >
+       
          <Component {...pageProps} />
-    </ChakraProvider>
+    
+      </SaasProvider>
+      </ChakraProvider>
+    </AuthProvider>
+    </FirebaseAppProvider>
   )
 }
