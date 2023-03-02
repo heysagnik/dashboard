@@ -1,8 +1,9 @@
 import Layout from 'components/DLayout'
-import { Box, Button, Heading, Spacer, Text } from '@chakra-ui/react'
+import { Box, Heading, Spacer, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useSigninCheck } from 'reactfire'
 import { useEffect } from 'react'
+import { Button } from "@saas-ui/react";
 
 export default function Index() {
   const router = useRouter()
