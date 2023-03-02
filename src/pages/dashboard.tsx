@@ -2,14 +2,17 @@ import Layout from "components/DLayout";
 import { Box, Button, Flex, Heading, Text,Image, ButtonGroup, Spacer } from '@chakra-ui/react'
 import { useUser,useSigninCheck } from "reactfire";
 import { useRouter } from "next/router";
+import {useEffect} from 'react';
 import { FiUpload,FiPlus } from 'react-icons/fi'
 
 export default function DashboardPage() {
   const {data:SigninCheckResult}=useSigninCheck();
   const router = useRouter();
+  useEffect(()=>{
   if(SigninCheckResult?.signedIn===false){
     router.push("/login");
   }
+    },[SigninCheckResult?.signedIn])
     return (
         <Layout title='Home'>
             <Box p={4} textAlign='center'>

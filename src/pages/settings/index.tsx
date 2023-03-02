@@ -2,14 +2,16 @@ import Layout from 'components/DLayout'
 import { Box, Button, Heading, Spacer, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useSigninCheck } from 'reactfire'
+import { useEffect } from 'react'
 
 export default function Index() {
   const router = useRouter()
   const {data:SigninCheckResult}=useSigninCheck();
+  useEffect(()=>{
     if(SigninCheckResult?.signedIn===false){
-        router.push("/login");
+      router.push("/login");
     }
- 
+      },[SigninCheckResult?.signedIn])
        
 
   return (
