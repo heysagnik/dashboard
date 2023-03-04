@@ -19,10 +19,13 @@ import {
 
 import configuration from 'configuration';
 import { isBrowser } from "utils/generic/isBrowser";
+import {NProgressNextRouter} from '@saas-ui/react'
+import { useState } from 'react'
 
 const t = extendTheme( theme,baseTheme)
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [isAnimating, setAnimating] = useState(false)
 
   const app = getApps().length === 0 ? initializeApp(configuration.firebase) : getApp();
   const persistence = isBrowser()
@@ -37,9 +40,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthProvider sdk={auth}>
       <ChakraProvider theme={t}>
       <SaasProvider theme={t} >
-       
-         <Component {...pageProps} />
-    
+         
+              <Component {...pageProps} />
+          
       </SaasProvider>
       </ChakraProvider>
     </AuthProvider>

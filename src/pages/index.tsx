@@ -1,10 +1,10 @@
-import { Button } from "@chakra-ui/react";
+import React, { useState } from 'react';
+import { Box } from '@chakra-ui/react';
 
-export default function Index() {
-  
+export default function Home() {
   return (
-    <>
-      <Button>Click me</Button>
-    </>
+    <Box>
+      <h1>Home</h1>
+    </Box>
   );
 }
