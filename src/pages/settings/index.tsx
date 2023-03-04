@@ -1,9 +1,10 @@
 import Layout from 'components/DLayout'
-import { Box, Heading, Spacer, Text } from '@chakra-ui/react'
+import { Box, Heading, Spacer, Tab, TabPanel,TabPanels,TabList, Tabs, Text ,useTabsContext,Button} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useSigninCheck } from 'reactfire'
 import { useEffect } from 'react'
-import { Button } from "@saas-ui/react";
+import { FiBell, FiShield, FiUser } from 'react-icons/fi'
+
 
 export default function Index() {
   const router = useRouter()
@@ -14,13 +15,31 @@ export default function Index() {
     }
       },[SigninCheckResult?.signedIn,router])
        
+  
 
   return (
     <Layout title='Settings'>
         <Box p={4} textAlign='center'>
-            <Text as={Heading} align='center' >Settings </Text>
-             <Spacer/>
-            <Button as='a' colorScheme={'purple'} onClick={()=> router.push('/settings/profile')} rounded={'full'} >View Profile</Button>
+            <Tabs colorScheme={'purple'}>
+              <TabList>
+                <Tab ><FiUser/>Account</Tab>
+                <Tab><FiShield/>Security</Tab>
+                <Tab><FiBell/>Notifications</Tab>
+              </TabList>
+            
+            <TabPanels>
+          
+                <TabPanel>
+                  <Text as={Heading} align='center' >Account </Text>
+                </TabPanel>
+                <TabPanel>
+                  <Text as={Heading} align='center' >Security </Text>
+                </TabPanel>
+                <TabPanel>
+                  <Text as={Heading} align='center' >Notifications </Text>
+                </TabPanel>
+            </TabPanels>
+            </Tabs>
         </Box>
     </Layout>
     )
