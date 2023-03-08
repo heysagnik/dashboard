@@ -1,4 +1,4 @@
-import Layout from 'components/DLayout'
+import Layout from 'components/Layout'
 import { Box, Heading, Text } from '@chakra-ui/react'
 import { useUser,useSigninCheck } from "reactfire";
 import { useRouter } from "next/router";
