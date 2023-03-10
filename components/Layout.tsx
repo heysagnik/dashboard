@@ -49,11 +49,11 @@ interface LayoutProps {
     <Image
       src="/logo.png"
       alt="ScreenREC"
-      width="45px"
+      width="40px"
       height="auto"
       display="inline-flex"
     />
-    <Text  align='center' >ScreenREC </Text>
+    <Text  align='center' >ScreenREC  </Text><Text fontSize="sm" color="muted" as='sup'>α</Text>
     </Box>
   );
 

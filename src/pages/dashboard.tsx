@@ -26,7 +26,7 @@ export default function DashboardPage() {
                     <Image src='/empty.png' alt='Record' w='400px' display={'inline-flex'} />
                 <Spacer/>
                 <ButtonGroup mt={4}>
-                <Button  variant={'solid'} rounded='full'colorScheme={'purple'} leftIcon={<FiPlus/>} disabled>
+                <Button  variant={'solid'} rounded='full'colorScheme={'purple'} leftIcon={<FiPlus/>} onClick={()=>router.push('/record')}>
                     Record
                 </Button>
                 <Button  variant={'solid'} rounded='full' leftIcon={<FiUpload/>} >

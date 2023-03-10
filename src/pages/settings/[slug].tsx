@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Heading } from "@chakra-ui/react";
 import Layout from "components/Layout";
@@ -14,6 +14,16 @@ const SettingsPage = () => {
     setCurrentTab(tab);
     router.push(`/settings/${tab}`);
   };
+  
+  useEffect(() => {
+    if (router.pathname === "account") {
+      handleTabChange("account");
+    } else if (router.pathname === "notifications") {
+      handleTabChange("notifications");
+    } else if (router.pathname === "integrations") {
+      handleTabChange("integrations");
+    }
+  }, [router.query.slug]);
 
 
   

@@ -1,9 +1,9 @@
-import { Avatar,  Box, Container, FormControl, FormLabel, HStack, IconButton,Input, SimpleGrid, Spacer, Stack, StackDivider, Text, useColorMode } from '@chakra-ui/react'
+import { Avatar,  Box, Container, FormControl, FormLabel, HStack, IconButton,Input, Progress, SimpleGrid, Spacer, Stack, StackDivider, Text, useColorMode } from '@chakra-ui/react'
 import { Button, Card,CardBody ,CardFooter, Divider} from '@saas-ui/react';
 import * as React from 'react'
 import { useUser } from "reactfire";
 import { PersonaAvatar } from "@saas-ui/persona";
-import {  FiPlus} from 'react-icons/fi';
+import {  FiPlus,FiZap} from 'react-icons/fi';
 
 
 
@@ -19,18 +19,20 @@ export const AccountSettings = () => {
     
    
     return (
-    <Container maxW='1xl'>
+
+    <Stack spacing={{base:'20',md:'30'}} divider={<Divider  my='10'/>} >
      <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
         <Box>
           <Text fontSize="lg" fontWeight="medium">
             Your Profile
           </Text>
           <Text color="muted" fontSize="sm">
-            Tell others who you are
+            Customize your Basic Details
           </Text>
        </Box>
+
         <Box >
-        <Card width={ {base:'100%', md: '200%'}} >
+        <Card width={ {base:'100%', md: '200%'}} maxW='lg'>
             <CardBody>
               <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
                 <FormControl id="picture" >
@@ -66,8 +68,6 @@ export const AccountSettings = () => {
         </Card>
         </Box>
       </Stack>
-        <Divider my={10} />
-
       <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
         <Box>
             <Text fontSize="lg" fontWeight="medium">
@@ -77,13 +77,26 @@ export const AccountSettings = () => {
                 Manage your billing information
             </Text>
         </Box>
-        <Box >
-            
+        <Box>
+            <Card width={ {base:'100%', md: '200%'}} maxW='lg' >
+                <CardBody>
+                    <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
+                        <Text fontSize="lg" fontWeight="medium" color="emphasized">Your Trial ends in few days</Text>
+                        <Progress value={10} size="sm" colorScheme="purple" variant={'outline'}/>
+                        
+                     </Stack>
+                </CardBody>
+                <CardFooter>
+                    <Spacer/>
+                    <Button variant='solid' leftIcon={<FiZap/>}>Upgrade</Button>
+                </CardFooter>
+            </Card>
+
 
         </Box>
     </Stack>
- 
-</Container>
+ </Stack>
+
      
     );
 };
