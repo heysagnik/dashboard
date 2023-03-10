@@ -102,7 +102,7 @@ interface LayoutProps {
                </MenuButton>
                
                   
-               <MenuList >
+               <MenuList zIndex={'+3'}>
                    <MenuItem >
                            <HStack>
                                <PersonaAvatar src={`${user?.photoURL}`} name={`${user?.displayName}`} size={'sm'}  />
@@ -149,8 +149,8 @@ interface LayoutProps {
           }
           sidebar={
             <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-              <SidebarToggleButton />
-              <SidebarOverlay />
+              <SidebarToggleButton position={'sticky'}/>
+            
               <SidebarSection direction="row">
                 <Spacer />
               </SidebarSection>

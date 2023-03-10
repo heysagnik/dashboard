@@ -1,4 +1,4 @@
-import { Avatar,  Box, Container, FormControl, FormLabel, HStack, IconButton,Input, SimpleGrid, Spacer, Stack, StackDivider, Text } from '@chakra-ui/react'
+import { Avatar,  Box, Container, FormControl, FormLabel, HStack, IconButton,Input, SimpleGrid, Spacer, Stack, StackDivider, Text, useColorMode } from '@chakra-ui/react'
 import { Button, Card,CardBody ,CardFooter, Divider} from '@saas-ui/react';
 import * as React from 'react'
 import { useUser } from "reactfire";
@@ -8,6 +8,8 @@ import {  FiPlus} from 'react-icons/fi';
 
 
 export const AccountSettings = () => {
+    const { colorMode } = useColorMode();
+    const iconColor = colorMode === "dark" ? "white" : "black"
     const { data: user } = useUser();
     const defaultValues = {
         name: `${user?.displayName}`,
@@ -17,7 +19,7 @@ export const AccountSettings = () => {
     
    
     return (
-    <Container maxW={'7xl'} >
+    <Container maxW='1xl'>
      <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
         <Box>
           <Text fontSize="lg" fontWeight="medium">
@@ -28,14 +30,14 @@ export const AccountSettings = () => {
           </Text>
        </Box>
         <Box >
-        <Card width='250%' >
+        <Card width={ {base:'100%', md: '200%'}} >
             <CardBody>
               <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
-                <FormControl id="picture" zIndex={'base'}>
-                    <Avatar size="lg" src={`${user?.photoURL}`} name={`${user?.displayName}`} >
+                <FormControl id="picture" >
+                    <Avatar size="lg" src={`${user?.photoURL}`} name={`${user?.displayName}`} zIndex='base'>
                     <IconButton
                         aria-label="Upload Profile Picture"
-                        icon={<FiPlus/>}
+                        icon={<FiPlus color={iconColor}/>}
                         rounded={'full'}
                         size='sm'
                         colorScheme="purple"

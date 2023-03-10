@@ -7,12 +7,9 @@ export const NotificationSettings = () => {
     
    
     return (
-     <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
-        <Box>
-          
-       </Box>
-        <Box >
-        <Card width='250%' >
+     
+        <Box margin={'5'}>
+        <Card width={'auto'}>
             <CardBody>
               <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
                 
@@ -26,8 +23,7 @@ export const NotificationSettings = () => {
             </CardFooter>
         </Card>
         </Box>
-      </Stack>
-
+   
      
     );
 };
