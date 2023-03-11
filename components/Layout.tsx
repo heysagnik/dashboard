@@ -24,6 +24,7 @@ import {
     useColorMode,
     Text,
     Button,
+    Badge,
   } from "@chakra-ui/react";
 import { PersonaAvatar } from "@saas-ui/persona";
 import { AppShell } from "@saas-ui/app-shell";
@@ -53,7 +54,7 @@ interface LayoutProps {
       height="auto"
       display="inline-flex"
     />
-    <Text  align='center' >ScreenREC  </Text><Text fontSize="sm" color="muted" as='sup'>α</Text>
+    <Text  align='center' >Capture <Badge variant='outline' rounded={'full'} textTransform="lowercase" colorScheme={'purple'}>&alpha;</Badge></Text>
     </Box>
   );
 

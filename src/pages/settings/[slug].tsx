@@ -31,7 +31,7 @@ const SettingsPage = () => {
   return (
     <Layout title="Settings">
       
-      <Tabs colorScheme={'purple'} >
+      <Tabs colorScheme={'primary'} >
         <TabList mb="4">
           <Tab onClick={() => handleTabChange("account")} >
             Account
@@ -46,6 +46,7 @@ const SettingsPage = () => {
         <TabPanels>
           <TabPanel>
             <AccountSettings />
+         
             {/* Your profile settings form goes here */}
           </TabPanel>
           <TabPanel>

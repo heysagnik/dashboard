@@ -1,5 +1,5 @@
 import { Avatar,  Box, Container, FormControl, FormLabel, HStack, IconButton,Input, Progress, SimpleGrid, Spacer, Stack, StackDivider, Text, useColorMode } from '@chakra-ui/react'
-import { Button, Card,CardBody ,CardFooter, Divider} from '@saas-ui/react';
+import { Button, Card,CardBody ,CardFooter, Divider, Property, PropertyList} from '@saas-ui/react';
 import * as React from 'react'
 import { useUser } from "reactfire";
 import { PersonaAvatar } from "@saas-ui/persona";
@@ -21,7 +21,7 @@ export const AccountSettings = () => {
     return (
 
     <Stack spacing={{base:'20',md:'30'}} divider={<Divider  my='10'/>} >
-     <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
+       <Stack spacing={'10'} direction={{ base: 'column', md: 'row' }}  >
         <Box>
           <Text fontSize="lg" fontWeight="medium">
             Your Profile
@@ -63,12 +63,12 @@ export const AccountSettings = () => {
             </CardBody>
             <CardFooter alignItems={'right'}>
                 <Spacer/>
-                <Button variant='solid' colorScheme={'purple'}>Save</Button>
+                <Button variant='solid' colorScheme={'primary'}>Save</Button>
             </CardFooter>
         </Card>
         </Box>
-      </Stack>
-      <Stack spacing={'20'} direction={{ base: 'column', md: 'row' }}  >
+        </Stack>
+        <Stack spacing={'10'} direction={{ base: 'column', md: 'row' }}  >
         <Box>
             <Text fontSize="lg" fontWeight="medium">
                 Billing
@@ -80,22 +80,38 @@ export const AccountSettings = () => {
         <Box>
             <Card width={ {base:'100%', md: '200%'}} maxW='lg' >
                 <CardBody>
-                    <Stack spacing="5" px={{ base: '4', md: '6' }} py={{ base: '5', md: '6' }}>
-                        <Text fontSize="lg" fontWeight="medium" color="emphasized">Your Trial ends in few days</Text>
-                        <Progress value={10} size="sm" colorScheme="purple" variant={'outline'}/>
-                        
-                     </Stack>
+                <PropertyList>
+                <Property label="Billing plan" value={<Text fontWeight="bold">Professional</Text>}/>
+                  <Property label="Billing period" value="Yearly" />
+                  <Property label="Renewal date" value="01-01-2023" />
+                  <Property
+                        label="Users"
+                        value={
+                        <Box flex="1">
+                            <Text fontSize="sm">20/100</Text>{' '}
+                            <Progress
+                                value={20}
+                                size="xs"
+                                colorScheme="primary"
+                                borderRadius="full"
+                            />
+                        </Box>
+                         }
+                    />
+                <Property label="Price" value="€1250,-" />
+                </PropertyList>
+  
                 </CardBody>
                 <CardFooter>
                     <Spacer/>
-                    <Button variant='solid' leftIcon={<FiZap/>}>Upgrade</Button>
+                    <Button leftIcon={<FiZap/>} colorScheme={'primary'} variant='solid'>Upgrade</Button>
                 </CardFooter>
             </Card>
 
 
         </Box>
+       </Stack>
     </Stack>
- </Stack>
 
      
     );

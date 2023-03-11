@@ -1,5 +1,5 @@
 import Layout from "components/Layout"
-import { Box, Button, Flex, Heading, Text,Image, ButtonGroup, Spacer } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Text,Image, ButtonGroup, Spacer, Tooltip } from '@chakra-ui/react'
 import { useUser,useSigninCheck } from "reactfire";
 import { useRouter } from "next/router";
 import {useEffect} from 'react';
@@ -26,12 +26,14 @@ export default function DashboardPage() {
                     <Image src='/empty.png' alt='Record' w='400px' display={'inline-flex'} />
                 <Spacer/>
                 <ButtonGroup mt={4}>
-                <Button  variant={'solid'} rounded='full'colorScheme={'purple'} leftIcon={<FiPlus/>} onClick={()=>router.push('/record')}>
+                <Button  variant={'solid'} rounded='full' colorScheme={'primary'} leftIcon={<FiPlus/>} onClick={()=>router.push('')} disabled>
                     Record
                 </Button>
+                <Tooltip label="Coming Soon" aria-label="Coming Soon" rounded='1'>
                 <Button  variant={'solid'} rounded='full' leftIcon={<FiUpload/>} >
                     Upload
                 </Button>
+                </Tooltip>
                 </ButtonGroup>
             </Box>
         </Layout>

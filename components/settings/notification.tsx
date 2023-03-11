@@ -8,18 +8,18 @@ export const NotificationSettings = () => {
    
     return (
      
-      <Container maxW='1xl'>
+      <Stack spacing={{base:'20',md:'30'}} divider={<Divider  my='10'/>} >
       <Stack spacing={{base:'20',md:'30'}} direction={{ base: 'column', md: 'row' }}  >
          <Box>
            <Text fontSize="lg" fontWeight="medium">
              Notifications
            </Text>
            <Text color="muted" fontSize="sm">
-           Manage how and where you want to be notified.
+           Get notified.
            </Text>
         </Box>
          <Box >
-         <Card width={ {base:'100%', md: '200%'}} >
+        <Card width={ {base:'100%', md: '200%'}} maxW='lg'>
          <Box
         bg="bg-surface"
         boxShadow={useColorModeValue('sm', 'sm-dark')}
@@ -50,7 +50,7 @@ export const NotificationSettings = () => {
     </Card>
    </Box>
   </Stack>
- </Container>
+</Stack>
     );
 };
 
