@@ -9,7 +9,7 @@ export const NotificationSettings = () => {
     return (
      
       <Stack spacing={{base:'20',md:'30'}} divider={<Divider  my='10'/>} >
-      <Stack spacing={{base:'20',md:'30'}} direction={{ base: 'column', md: 'row' }}  >
+      <Stack spacing={'10'} direction={{ base: 'column', md: 'row' }}  >
          <Box>
            <Text fontSize="lg" fontWeight="medium">
              Notifications
