@@ -92,7 +92,7 @@ interface LayoutProps {
         <AppShell
           height="100vh"
           navbar={
-            <Flex justifyContent="space-between"  borderBottomWidth="1px"  position="sticky">
+            <Flex justifyContent="space-between"  borderBottomWidth="1px" >
               <Box ml="2" px='10' py='2'>
                 <Logo />
               </Box>
@@ -185,7 +185,7 @@ interface LayoutProps {
           }
         >
         
-          <Box as="main">
+          <Box as="main" overflow={'auto'}>
           
            <Loader variant="fullscreen" isLoading={isLoading} />
 
